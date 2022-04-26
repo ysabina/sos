@@ -23,10 +23,12 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         if(mAuth.getCurrentUser()==null){
             Intent intent=new Intent(MainActivity.this,LoginActivity.class);
             startActivity(intent);
+        } else {
+            bottomNavigationView = findViewById(R.id.bottomNavigationView);
+            bottomNavigationView.setOnItemSelectedListener(this);
+            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment,profileFragment).commit();
         }
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setOnItemSelectedListener(this);
-        getSupportFragmentManager().beginTransaction().replace(R.id.flFragment,profileFragment).commit();
+
 
     }
 
