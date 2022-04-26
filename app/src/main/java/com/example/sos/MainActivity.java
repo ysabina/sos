@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
 
     ProfileFragment profileFragment=new ProfileFragment();
     SosFragment sosFragment = new SosFragment();
+    MapsFragment mapsFragment = new MapsFragment();
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -45,7 +46,8 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
                 getSupportFragmentManager().beginTransaction().replace(R.id.flFragment,profileFragment).commit();
                 return true;
             case R.id.map:
-                return false;
+                getSupportFragmentManager().beginTransaction().replace(R.id.flFragment,mapsFragment).commit();
+                return true;
         }
         return false;
     }
